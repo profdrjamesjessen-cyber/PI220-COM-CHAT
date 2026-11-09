@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080e14">
+  <meta name="description" content="PI220 COMMUNICATIONS — secure member discussion network.">
+  <title>PI220 | COMMUNICATIONS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+<main class="shell">
+  <header class="topline">
+    <div class="brand">
+      <div class="brand-mark">PI<span>220</span></div>
+      <div class="brand-copy">
+        <strong>COMMUNICATIONS</strong>
+        <small>PARALLEL INDUSTRIES 220 <i></i> MEMBER NETWORK</small>
+      </div>
+    </div>
+    <div class="connection" id="connectionIndicator">
+      <i></i><span id="connectionStatus">INITIALIZING</span>
+    </div>
+  </header>
+
+  <section id="authPanel" class="auth-layout">
+    <div class="intro">
+      <p class="eyebrow">PI220 NETWORK / MEMBER ACCESS</p>
+      <h1>Ideas move<br><em>industries forward.</em></h1>
+      <p class="intro-copy">A focused environment for professional discussion, knowledge exchange and collaborative development.</p>
+      <div class="principles">
+        <div><b>01</b><span>Professional dialogue</span></div>
+        <div><b>02</b><span>Knowledge exchange</span></div>
+        <div><b>03</b><span>Responsible participation</span></div>
+      </div>
+    </div>
+
+    <section class="auth-card">
+      <div class="card-head">
+        <span class="eyebrow">IDENTITY SERVICES</span>
+        <span class="secure-label"><i></i> AUTHENTICATED ACCESS</span>
+      </div>
+      <div class="tabs">
+        <button class="tab active" id="loginTab" type="button">SIGN IN</button>
+        <button class="tab" id="registerTab" type="button">REGISTER</button>
+      </div>
+      <h2 id="formTitle">Welcome back.</h2>
+      <p class="form-intro" id="formIntro">Sign in with your registered email address.</p>
+      <form id="authForm">
+        <label id="nameLabel" class="hidden">DISPLAY NAME
+          <input id="displayName" type="text" autocomplete="name" maxlength="60" placeholder="Your display name">
+        </label>
+        <label>EMAIL ADDRESS
+          <input id="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@example.com">
+        </label>
+        <label>PASSWORD
+          <input id="password" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters">
+        </label>
+        <button class="primary full-width" id="submitButton" type="submit">SIGN IN <span>→</span></button>
+      </form>
+      <button class="text-button" id="resetButton" type="button">Forgot your password?</button>
+      <p class="message" id="message" role="status" aria-live="polite"></p>
+      <p class="fineprint">Use PI220 COMMUNICATIONS responsibly and respectfully.</p>
+    </section>
+  </section>
+
+  <section id="chatApp" class="chat-app hidden" aria-label="PI220 chat workspace">
+    <aside class="rooms-panel">
+      <div class="directory-head">
+        <div>
+          <p class="eyebrow">NETWORK DIRECTORY</p>
+          <h2>CHANNELS <span id="roomCount">—</span></h2>
+        </div>
+        <span class="directory-mark">PI</span>
+      </div>
+
+      <div class="member-chip">
+        <span class="online-dot"></span>
+        <span id="memberName">MEMBER</span>
+        <button id="signOutButton" title="Sign out" aria-label="Sign out">↗</button>
+      </div>
+
+      <div class="room-search-wrap">
+        <span aria-hidden="true">⌕</span>
+        <input id="roomSearch" type="search" placeholder="Find a channel…" aria-label="Find a channel">
+      </div>
+      <nav id="roomList" class="room-list" aria-label="Public channels">
+        <p class="muted pad">Loading room directory…</p>
+      </nav>
+      <div class="directory-foot"><span class="online-dot"></span> PUBLIC NETWORK</div>
+    </aside>
+
+    <section class="conversation">
+      <header class="room-header">
+        <div class="room-heading">
+          <p class="eyebrow">PI220 COMMUNICATIONS <span>/</span> CHANNEL</p>
+          <h2 id="roomTitle">Select a channel</h2>
+          <p id="roomDescription" class="muted">Choose a room from the directory.</p>
+        </div>
+        <div class="room-state">
+          <span class="live-indicator" id="liveIndicator"></span>
+          <span id="liveStatus">SELECT A CHANNEL</span>
+        </div>
+      </header>
+
+      <div class="message-stage">
+        <div id="messages" class="messages" aria-live="polite" aria-relevant="additions">
+          <div class="empty-state">
+            <span class="empty-symbol">PI<span>220</span></span>
+            <b>WELCOME TO COMMUNICATIONS</b>
+            <p>Select a channel to enter the conversation.</p>
+          </div>
+        </div>
+        <button id="newMessagesButton" class="new-messages hidden" type="button">↓ NEW MESSAGES</button>
+      </div>
+
+      <form id="composer" class="composer">
+        <div class="composer-label">
+          <span class="eyebrow">MESSAGE COMPOSER</span>
+          <span id="characterCount">0 / 5,000</span>
+        </div>
+        <textarea id="messageInput" maxlength="5000" rows="1" placeholder="Write a message…  (Enter to send · Shift + Enter for a new line)" disabled></textarea>
+        <div class="composer-bottom">
+          <p id="sendFeedback" class="send-feedback" role="status" aria-live="polite">Keep it constructive. Duplicate messages are restricted.</p>
+          <button id="sendButton" class="primary send-button" type="submit" disabled>SEND MESSAGE <span>→</span></button>
+        </div>
+      </form>
+    </section>
+  </section>
+
+  <footer>
+    <span>PI220 <i></i> PARALLEL INDUSTRIES 220</span>
+    <span>COMMUNICATIONS SYSTEM <b>V1.2 / SECURITY &amp; INTERFACE</b></span>
+  </footer>
+</main>
+</body>
+</html>
